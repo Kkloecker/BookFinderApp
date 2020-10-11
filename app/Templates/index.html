@@ -3,6 +3,17 @@
         <title>{{ title }} </title>
     </head>
     <body>
+     <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.select }}
+        </p>
+        <p>
+            {{ form.search}}
+        </p>
+
+        <p><input type="submit" value="Search">
+     </form>
         {% for book in bookList %}
         <div><p>{{ book.title, book.author, book.description }} </p></div>
         {% endfor %}
