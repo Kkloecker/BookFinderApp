@@ -1,7 +1,6 @@
 from flask import flash, render_template, request, redirect
 from app.Models import Book
 from app.forms import BookSearchForm
-from app.forms import BookSearchForm
 import requests
 from app import app
 
@@ -13,19 +12,6 @@ def index():
         return search_results(search)
     return render_template('index.html', form=search)
 
-
-  #  endpoint = 'https://www.googleapis.com/books/v1/volumes?q=Climbing'
-   # response = requests.get(endpoint).json()
-   # bookList = []
-
-    # for book in response['items']:
-   #     title = book['volumeInfo']['title']
-    #    author = book['volumeInfo']['authors'][0]
-     #   description = book['volumeInfo']['description']
-      #  book = Book.Book(title, author, description)
-       # bookList.append(book)
- #    return render_template('index.html', title="Bookfinder", bookList=bookList)
-#
 
 # @app.route('/results')
 def search_results(search):
@@ -46,5 +32,12 @@ def search_results(search):
         bookList.append(book)
     return render_template('index.html', title="Bookfinder", bookList=bookList, form = search)
 
-   # if __name__ == '__main__':
-    #    app.run()
+
+
+    # for book in response['items']:
+   #     title = book['volumeInfo']['title']
+    #    author = book['volumeInfo']['authors'][0]
+     #   description = book['volumeInfo']['description']
+      #  book = Book.Book(title, author, description)
+       # bookList.append(book)
+ #    return render_template('index.html', title="Bookfinder", bookList=bookList)

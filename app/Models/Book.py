@@ -1,4 +1,5 @@
 class Book:
+    author = []
     def __init__(self, title, author, description):
         self.title = title
         self.author = author

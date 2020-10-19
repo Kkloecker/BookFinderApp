@@ -1,8 +1,14 @@
 <html>
     <head>
         <title>{{ title }} </title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
     </head>
     <body>
+
+     <h1>Book Finder </h1>
+
      <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
@@ -15,7 +21,7 @@
         <p><input type="submit" value="Search">
      </form>
         {% for book in bookList %}
-        <div><p>{{ book.title, book.author, book.description }} </p></div>
+        <div><p> {{ book.title}} <br /> {{book.author}}<br /> {{book.description }} </p></div>
         {% endfor %}
     </body>
 </html>
