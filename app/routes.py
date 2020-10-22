@@ -26,8 +26,12 @@ def search_results(search):
 
     for book in response['items']:
         title = book['volumeInfo']['title']
-        author = book['volumeInfo']['authors'][0]
-        description = book['volumeInfo']['description']
+        author = book.get('volumeInfo').get('authors')  #.get doesn't give error if no data
+        if book.get('volumeInfo').get('authors') == None:
+          author = 'Unknown'
+        description = book['volumeInfo'].get('description')
+        if book['volumeInfo'].get('description') == None:
+           description = 'Unknown'
         book = Book.Book(title, author, description)
         bookList.append(book)
     return render_template('index.html', title="Bookfinder", bookList=bookList, form = search)
